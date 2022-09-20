@@ -1,2 +1,3 @@
-alert('hello word')
-alert('primeiro comando em javascript')
+let titulo = document.querySelector('h1');
+
+titulo.textContent = 'Aparecida Nutricionista'

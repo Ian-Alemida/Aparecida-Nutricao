@@ -3,14 +3,19 @@ titulo.textContent = 'Aparecida Nutricionista'
 //buscando paciente
 let paciente = document.querySelector('#primeiro-paciente')
 // pegando o peso 
-let tdpeso = paciente.querySelector('.info-peso')
-let peso = tdpeso.textContent
+let peso = paciente.querySelector('.info-peso').textContent
 // Pegando altura
-let tdaltura = paciente.querySelector('.info-altura')
-let altura = tdaltura.textContent
+let altura = paciente.querySelector('.info-altura').textContent
 //calculando imc
 const imc = peso / (altura * altura)
 //substituindo o imc na tabela
-let imcInfo = paciente.querySelector('.info-imc')
-imcInfo.textContent = imc
+paciente.querySelector('.info-imc').textContent = imc
 
+/** João */
+let paciente2 = document.querySelector('#segundo-paciente')
+let peso2 = paciente2.querySelector('.info-peso').textContent
+let altura2 = paciente2.querySelector('.info-altura').textContent
+const imc2 = peso2 / (altura2 * altura2)
+paciente2.querySelector('.info-imc').textContent = Math.round(imc2)
+
+/** Erica */

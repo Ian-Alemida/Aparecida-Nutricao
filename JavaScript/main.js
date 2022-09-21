@@ -1,21 +1,35 @@
 let titulo = document.querySelector('.titulo');
 titulo.textContent = 'Aparecida Nutricionista'
+
 //buscando paciente
-let paciente = document.querySelector('#primeiro-paciente')
-// pegando o peso 
-let peso = paciente.querySelector('.info-peso').textContent
-// Pegando altura
-let altura = paciente.querySelector('.info-altura').textContent
-//calculando imc
-const imc = peso / (altura * altura)
-//substituindo o imc na tabela
-paciente.querySelector('.info-imc').textContent = imc
+let pacientes = document.querySelectorAll('.paciente')
 
-/** João */
-let paciente2 = document.querySelector('#segundo-paciente')
-let peso2 = paciente2.querySelector('.info-peso').textContent
-let altura2 = paciente2.querySelector('.info-altura').textContent
-const imc2 = peso2 / (altura2 * altura2)
-paciente2.querySelector('.info-imc').textContent = Math.round(imc2)
+for (let i = 0; i<pacientes.length; i++) {
 
-/** Erica */
+    let paciente = pacientes[i]
+    // pegando o peso 
+    let peso = paciente.querySelector('.info-peso').textContent
+    // Pegando altura
+    let altura = paciente.querySelector('.info-altura').textContent
+    //calculando imc
+    const imc = peso / (altura * altura)
+
+
+    validacaoPeso = true
+    validacaoAltura = true
+
+    if(peso<0 || peso>500){
+        console.log('Peso invalido!!')
+        validacaoPeso = false
+    }
+    if(altura<0.5 || altura>3.0){
+        console.log('altura invalida!!')
+        validacaoAltura = false
+    }
+
+    if(validacaoAltura && validacaoPeso){
+        paciente.querySelector('.info-imc').textContent = imc.toFixed(2)
+    }else{
+        paciente.querySelector('.info-imc').textContent = 'Peso ou altura invalidos'
+    }
+}

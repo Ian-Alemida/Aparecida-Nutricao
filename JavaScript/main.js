@@ -30,7 +30,7 @@ for (let i = 0; i<pacientes.length; i++) {
     if(validacaoAltura && validacaoPeso){
         paciente.querySelector('.info-imc').textContent = imc.toFixed(2)
     }else{
-        paciente.querySelector('.info-imc').textContent = 'Peso ou altura invalidos'
+        paciente.querySelector('.info-imc').textContent = 'Peso ou altura invalidos!!!'
         paciente.classList.add('paciente-invalido')
     }
 }

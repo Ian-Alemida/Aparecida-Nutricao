@@ -31,5 +31,6 @@ for (let i = 0; i<pacientes.length; i++) {
         paciente.querySelector('.info-imc').textContent = imc.toFixed(2)
     }else{
         paciente.querySelector('.info-imc').textContent = 'Peso ou altura invalidos'
+        paciente.classList.add('paciente-invalido')
     }
 }

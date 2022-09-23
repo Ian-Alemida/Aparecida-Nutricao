@@ -1,13 +1,20 @@
 const button = document.querySelector('#adicionar-paciente')
 
+function obtemDadosDoFormulario(form){
+    let paciente = {
+        nome: form.nome.value,
+        peso: form.peso.value,
+        altura: form.altura.value,
+        gordura: form.gordura.value,
+    }
+    return paciente;
+}
+
 button.addEventListener('click', function(event){
     event.preventDefault();
     const form = document.querySelector('#form-adiciona');
     
-    let nome = form.nome.value;
-    let peso = form.peso.value;
-    let altura = form.altura.value;
-    let gordura = form.gordura.value;
+    let paciente = obtemDadosDoFormulario(form);
 
     var pacienteTr = document.createElement("tr");
     var pacienteTdN = document.createElement("td");
@@ -15,17 +22,12 @@ button.addEventListener('click', function(event){
     var pacienteTdA = document.createElement("td");
     var pacienteTdG = document.createElement("td");
     var pacienteTdImc = document.createElement("td");
-    pacienteTdImc.classList.add('info-imc');
-    pacienteTdP.classList.add('info-peso');
-    pacienteTdA.classList.add('info-altura');
 
-    const imc2 = peso / (altura * altura)
-
-    pacienteTdN.textContent = nome;
-    pacienteTdP.textContent = peso;
-    pacienteTdA.textContent = altura;
-    pacienteTdG.textContent = gordura;
-    pacienteTdImc.textContent = imc2.toFixed(2);
+    pacienteTdN.textContent = paciente.nome;
+    pacienteTdP.textContent = paciente.peso;
+    pacienteTdA.textContent = paciente.altura;
+    pacienteTdG.textContent = paciente.gordura;
+    pacienteTdImc.textContent = calculaImc(paciente.peso, paciente.altura);
 
     pacienteTr.appendChild(pacienteTdN);    
     pacienteTr.appendChild(pacienteTdP);    

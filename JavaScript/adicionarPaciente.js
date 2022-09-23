@@ -40,4 +40,6 @@ button.addEventListener('click', function(event){
     
     const tabela = document.querySelector('#tabela-pacientes');
     tabela.appendChild(tabelaPaciente);
+    
+    form.reset();
 });

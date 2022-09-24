@@ -20,14 +20,14 @@ for (let i = 0; i<pacientes.length; i++) {
     // Pegando altura
     let altura = paciente.querySelector('.info-altura').textContent;
 
-    validacaoPeso = true
-    validacaoAltura = true
+    validacaoPeso = validaPeso(peso);
+    validacaoAltura = validaAltura(altura);
 
-    if(peso<0 || peso>500){
+    if(!validacaoPeso){
         console.log('Peso invalido!!')
         validacaoPeso = false
     };
-    if(altura<0.5 || altura>3.0){
+    if(!validacaoAltura){
         console.log('altura invalida!!')
         validacaoAltura = false
     };

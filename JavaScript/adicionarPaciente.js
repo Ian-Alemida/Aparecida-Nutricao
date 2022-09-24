@@ -38,13 +38,10 @@ button.addEventListener('click', function(event){
     let paciente = obtemDadosDoFormulario(form);
     let validacao = validacaoFormulario(paciente);
     let tabelaPaciente = montaTr(paciente);
-    let campoErro = document.querySelector('.msgErro')
     
     const tabela = document.querySelector('#tabela-pacientes');
 
     tabela.appendChild(tabelaPaciente);
         
     console.log("Peso ou altura invalidos!!");
-
-
 });

@@ -36,8 +36,15 @@ button.addEventListener('click', function(event){
     event.preventDefault();
     
     let paciente = obtemDadosDoFormulario(form);
-    let validacao = validacaoFormulario(paciente);
     let tabelaPaciente = montaTr(paciente);
+
+    let erro = validaPaciente(paciente)
+    let msgErro = document.querySelector('.msgErro')
+
+    if(erro.length > 0){
+        msgErro.textContent = erro
+        return;
+    }
     
     const tabela = document.querySelector('#tabela-pacientes');
 
@@ -45,3 +52,13 @@ button.addEventListener('click', function(event){
         
     console.log("Peso ou altura invalidos!!");
 });
+
+function validaPaciente(paciente){
+
+    let erros = [];
+
+    if(!validaPeso(paciente.peso)) erros.push('O peso é invalido!');
+    if(!validaAltura(paciente.altura)) erros.push('Altura invalida!');
+
+    return erros;
+};

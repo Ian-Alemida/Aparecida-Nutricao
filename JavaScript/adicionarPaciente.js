@@ -32,14 +32,34 @@ function montaTr(paciente){
     return tr;
 };
 
+function validacaoFormulario(paciente){
+    validacaoPeso = true
+    validacaoAltura = true
+
+    if(paciente.peso<0 || paciente.peso>550){
+        validacaoPeso = false
+        console.log("peso invalido!!")
+    }
+    if(paciente.altura<0.5 || paciente.altura>3.0){
+        validacaoAltura = false
+        console.log("altura invalida!!!")
+    }
+};
+
 button.addEventListener('click', function(event){
     event.preventDefault();
     
     let paciente = obtemDadosDoFormulario(form);
-    let tabelaPaciente = montaTr(paciente)
+    let validacao = validacaoFormulario(paciente);
+    let tabelaPaciente = montaTr(paciente);
+
     
     const tabela = document.querySelector('#tabela-pacientes');
-    tabela.appendChild(tabelaPaciente);
-    
-    form.reset();
+
+    if(validacaoPeso && validacaoAltura){
+        tabela.appendChild(tabelaPaciente);
+        form.reset();
+    }else{
+        alert("Peso ou altura invalidos!!")
+    }
 });

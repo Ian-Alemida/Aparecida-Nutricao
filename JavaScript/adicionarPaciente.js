@@ -39,7 +39,7 @@ button.addEventListener('click', function(event){
     let tabelaPaciente = montaTr(paciente);
 
     let erro = validaPaciente(paciente)
-    let msgErro = document.querySelector('.msgErro')
+    let msgErro = document.querySelector('msgErro')
 
     if(erro.length > 0){
         msgErro.textContent = erro

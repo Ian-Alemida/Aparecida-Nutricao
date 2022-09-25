@@ -49,7 +49,9 @@ button.addEventListener('click', function(event){
 
     tabela.appendChild(tabelaPaciente);
         
-    console.log("Peso ou altura invalidos!!");
+    form.reset();
+    let ulMsgErro= document.querySelector('.msgErro')
+    ulMsgErro.innerHTML = "";
 });
 
 function exibirMensagensDeErro(erros){
@@ -60,7 +62,7 @@ function exibirMensagensDeErro(erros){
     erros.forEach(function(erro){
         var li = document.createElement("li");
         li.textContent = erro;
-        
+
         ul.appendChild(li)
     });
 }
@@ -68,13 +70,14 @@ function exibirMensagensDeErro(erros){
 function validaPaciente(paciente){
 
     let erros = [];
-
-    if(paciente.nome.length <= 0) erros.push('Paciente sem nome!')
-
+ 
     if(!validaPeso(paciente.peso)) erros.push('O peso é invalido!');
     if(!validaAltura(paciente.altura)) erros.push('Altura invalida!');
 
-    if (paciente.gordura.length <= 0) erros.push('Gordura invalida!')
+    if (paciente.nome.length <= 0) erros.push('Nome esta em branco!')
+    if (paciente.peso.length <= 0) erros.push('Peso esta em branco!')
+    if (paciente.altura.length <= 0) erros.push('Altura esta em branco!')
+    if (paciente.gordura.length <= 0) erros.push('Gordura esta em branco!')
 
     return erros;
 };

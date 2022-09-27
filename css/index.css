@@ -145,3 +145,9 @@ button[disabled=disabled], button:disabled {
 	opacity: 0;
 	transition: 0.5s;
 }
+
+#filtra_paciente{
+	padding: .4rem;
+	margin-bottom: .7rem;
+	width: 220px;
+}

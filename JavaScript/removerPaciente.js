@@ -10,8 +10,6 @@ pacientess.forEach(function(paciente){
                 event.target.parentNode.remove();
             }
         }, 500);
-    })
-
-    
+    }) 
 })
 

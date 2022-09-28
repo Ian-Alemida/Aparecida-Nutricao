@@ -1,8 +1,7 @@
 const botaoAdicionar = document.querySelector('#buscar-Pacientes')
 
 botaoAdicionar.addEventListener('click', function(){
-    console.log('buscando...');
-
+    
     let xhr = new XMLHttpRequest();
 
     xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes");
@@ -12,11 +11,9 @@ botaoAdicionar.addEventListener('click', function(){
         var pacientesArray = JSON.parse(resposta)
 
         pacientesArray.forEach(function(paciente){
-            obtemDadosDoFormulario(paciente)
+            adicionaPacienteNaTabela(paciente)
         })
 
-        console.log(pacientesArray)
-        console.log(typeof pacientesArray);
     })
 
     xhr.send();

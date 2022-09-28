@@ -36,7 +36,6 @@ button.addEventListener('click', function(event){
     event.preventDefault();
     
     let paciente = obtemDadosDoFormulario(form);
-    let tabelaPaciente = montaTr(paciente);
 
     let erros = validaPaciente(paciente)
 
@@ -45,14 +44,18 @@ button.addEventListener('click', function(event){
         return;
     }
     
-    const tabela = document.querySelector('#tabela-pacientes');
-
-    tabela.appendChild(tabelaPaciente);
+    adicionaPacienteNaTabela(paciente)
         
     form.reset();
     let ulMsgErro= document.querySelector('.msgErro')
     ulMsgErro.innerHTML = "";
 });
+
+function adicionaPacienteNaTabela(paciente){
+    let tabelaPaciente = montaTr(paciente);
+    const tabela = document.querySelector('#tabela-pacientes');
+    tabela.appendChild(tabelaPaciente);
+}
 
 function exibirMensagensDeErro(erros){
 
